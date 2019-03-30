@@ -4,6 +4,10 @@ out1=13
 out2=11
 out3=15
 out4=12
+i=0
+positive=0
+negative=0
+y=0
 
 def MotorAssign(ot1,ot2,ot3,ot4):
       out1=ot1
@@ -23,7 +27,15 @@ def MotorRun():
       y=0
       x = input()
       x=x*400
-      convstep(x)
+      if x<=400:
+        convstep(x)
+      else:
+        z=x%400
+        convstep(z)
+        z=x/400
+            while(z>0):
+                convstep(400)
+                z--
 
 def convstep(x):
       try:

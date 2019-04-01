@@ -48,6 +48,7 @@ def MotorRun():
             z=z-1
 
 def convstep(x):
+    negative =0
     if(x==0):
         return
     try:

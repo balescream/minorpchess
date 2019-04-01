@@ -4,16 +4,6 @@ out1=13
 out2=11
 out3=15
 out4=12
-global i
-global positive
-global negative
-global y
-
-i=0
-positive=0
-negative=0
-y=0
-
 def MotorAssign(ot1,ot2,ot3,ot4):
     out1=ot1
     out2=ot2
@@ -49,6 +39,10 @@ def MotorRun():
 
 def convstep(x):
     negative =0
+    i=0
+    positive =0
+    y=0
+
     if(x==0):
         return
     try:

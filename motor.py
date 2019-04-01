@@ -4,10 +4,15 @@ out1=13
 out2=11
 out3=15
 out4=12
-global i=0
-global positive=0
-global negative=0
-global y=0
+global i
+global positive
+global negative
+global y
+
+i=0
+positive=0
+negative=0
+y=0
 
 def MotorAssign(ot1,ot2,ot3,ot4):
     out1=ot1

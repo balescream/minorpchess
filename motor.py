@@ -25,15 +25,20 @@ def MotorRun():
     negative=0
     y=0
     x = input()
+    int(x)
     x=x*400
+    print("x is something:",x)
     if x<=400:
         convstep(x)
     else:
         z=x%400
         x=x-z
+	print("z is something",z)
         convstep(z)
         z=x/400
+	print("z is something else",z)
         while(z>0):
+	    print("loop z",z)
             convstep(400)
             z=z-1
 
@@ -201,4 +206,5 @@ def convstep(x):
         GPIO.cleanup()  
 
 MotorAssign(out1,out2,out3,out4)
-MotorRun()
+#MotorRun()
+convstep(300)

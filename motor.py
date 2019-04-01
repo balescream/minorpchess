@@ -10,30 +10,30 @@ negative=0
 y=0
 
 def MotorAssign(ot1,ot2,ot3,ot4):
-      out1=ot1
-      out2=ot2
-      out3=ot3
-      out4=ot4
-      GPIO.setmode(GPIO.BOARD)
-      GPIO.setup(out1,GPIO.OUT)
-      GPIO.setup(out2,GPIO.OUT)
-      GPIO.setup(out3,GPIO.OUT)
-      GPIO.setup(out4,GPIO.OUT)
-      GPIO.setup(37,GPIO.OUT)
-      GPIO.setup(35,GPIO.OUT)
-      GPIO.output(37,GPIO.HIGH)
-      GPIO.output(35,GPIO.HIGH)
+    out1=ot1
+    out2=ot2
+    out3=ot3
+    out4=ot4
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(out1,GPIO.OUT)
+    GPIO.setup(out2,GPIO.OUT)
+    GPIO.setup(out3,GPIO.OUT)
+    GPIO.setup(out4,GPIO.OUT)
+    GPIO.setup(37,GPIO.OUT)
+    GPIO.setup(35,GPIO.OUT)
+    GPIO.output(37,GPIO.HIGH)
+    GPIO.output(35,GPIO.HIGH)
 #just a thing for running a motor
 def MotorRun():
-      i=0
-      positive=0
-      negative=0
-      y=0
-      x = input()
-      x=x*400
-      if x<=400:
+    i=0
+    positive=0
+    negative=0
+    y=0
+    x = input()
+    x=x*400
+    if x<=400:
         convstep(x)
-      else:
+    else:
         z=x%400
 	x=x-z
         convstep(z)
@@ -43,8 +43,8 @@ def MotorRun():
 		z=z-1
 
 def convstep(x):
-      try:
-         while(1):
+    try:
+        while(1):
             GPIO.output(out1,GPIO.LOW)
             GPIO.output(out2,GPIO.LOW)
             GPIO.output(out3,GPIO.LOW)
@@ -195,8 +195,8 @@ def convstep(x):
                         i=7
                         continue
                     i=i-1 
-      except KeyboardInterrupt:
-              GPIO.cleanup()  
+    except KeyboardInterrupt:
+        GPIO.cleanup()  
 
 MotorAssign(out1,out2,out3,out4)
 MotorRun()

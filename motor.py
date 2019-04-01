@@ -35,21 +35,22 @@ def MotorRun():
         convstep(x)
     else:
         z=x%400
-	x=x-z
+        x=x-z
         convstep(z)
         z=x/400
-	while(z>0):
-		convstep(400)
-		z=z-1
+        while(z>0):
+            convstep(400)
+            z=z-1
 
 def convstep(x):
+    if(x==0) return
     try:
         while(1):
             GPIO.output(out1,GPIO.LOW)
             GPIO.output(out2,GPIO.LOW)
             GPIO.output(out3,GPIO.LOW)
             GPIO.output(out4,GPIO.LOW)
-            if x>0:
+            if x>0 and x<=400:
                 print ("inside  loop")
                 for y in range(x,0,-1):
                     if negative==1:
@@ -123,7 +124,7 @@ def convstep(x):
                     i=i+1
             
             
-            elif x<0:
+            elif x<0 and x>=-400:
                 x=x*-1
                 for y in range(x,0,-1):
                     if positive==1:

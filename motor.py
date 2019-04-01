@@ -19,6 +19,10 @@ def MotorAssign(ot1,ot2,ot3,ot4):
       GPIO.setup(out2,GPIO.OUT)
       GPIO.setup(out3,GPIO.OUT)
       GPIO.setup(out4,GPIO.OUT)
+      GPIO.setup(37,GPIO.OUT)
+      GPIO.setup(35,GPIO.OUT)
+      GPIO.output(37,GPIO.HIGH)
+      GPIO.output(35,GPIO.HIGH)
 #just a thing for running a motor
 def MotorRun():
       i=0
@@ -31,11 +35,12 @@ def MotorRun():
         convstep(x)
       else:
         z=x%400
+	x=x-z
         convstep(z)
         z=x/400
-            while(z>0):
-                convstep(400)
-                z--
+	while(z>0):
+		convstep(400)
+		z=z-1
 
 def convstep(x):
       try:
@@ -192,3 +197,6 @@ def convstep(x):
                     i=i-1 
       except KeyboardInterrupt:
               GPIO.cleanup()  
+
+MotorAssign(out1,out2,out3,out4)
+MotorRun()

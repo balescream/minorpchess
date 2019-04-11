@@ -64,22 +64,28 @@ class AI:
 
     def getRandomMove(self):
         legalMoves = list(self.board.getAllMovesLegal(self.side))
+        for move in legalMoves:
+            print(move)
         randomMove = random.choice(legalMoves)
         return randomMove
 
     def generateMoveTree(self):
         moveTree = []
         for move in self.board.getAllMovesLegal(self.side):
+            print(move)
             moveTree.append(MoveNode(move, [], None))
-
+        print("Move tree first prited...")
         for node in moveTree:
             self.board.makeMove(node.move)
+            print("Populating Node")
+            print(node.move)
             self.populateNodeChildren(node)
             self.board.undoLastMove()
         return moveTree
 
     def populateNodeChildren(self, node):
         node.pointAdvantage = self.board.getPointAdvantageOfSide(self.side)
+        print(node.pointAdvantage)
         node.depth = node.getDepth()
         if node.depth == self.depth:
             return
@@ -87,6 +93,8 @@ class AI:
         side = self.board.currentSide
 
         legalMoves = self.board.getAllMovesLegal(side)
+        for moves in legalMoves:
+            print(moves)
         if not legalMoves:
             if self.board.isCheckmate():
                 node.move.checkmate = True

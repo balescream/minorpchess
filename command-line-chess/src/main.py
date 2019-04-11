@@ -119,6 +119,7 @@ def startGame(board, playerSide, ai):
         else:
             print("AI thinking...")
             move = ai.getBestMove()
+            printAllLegalMoves(board, InputParser(board, False))
             move.notation = parser.notationForMove(move)
             makeMove(move, board)
 

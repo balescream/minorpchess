@@ -38,7 +38,7 @@ def MotorRun():
         z=x/400
 	print("z is something else",z)
         while(z>0):
-	    print("loop z",z)
+            print("loop z",z)
             convstep(400)
             z=z-1
 

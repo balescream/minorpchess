@@ -227,6 +227,7 @@ try:
         dir = 1
         if(x<0):
             dir = -1
+            x=x*-1
         for i in range(x):
             rotate(dir)
 except KeyboardInterrupt:

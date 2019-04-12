@@ -29,6 +29,11 @@ nsteps = 20
 
 
 def rotate():
+    i = 0
+    positive = 0
+    negative = 0
+    y = 0
+    slp = 0.001
     x = 400
     if x > 0 and x <= 400:
         for y in range(x, 0, -1):

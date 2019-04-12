@@ -28,13 +28,13 @@ print 'First calibrate by giving some +ve and -ve values.....'
 nsteps = 20
 
 
-def rotate():
+def rotate( dir ):
     i = 0
     positive = 0
     negative = 0
     y = 0
     slp = 0.001
-    x = 400
+    x = 400*dir
     if x > 0 and x <= 400:
         for y in range(x, 0, -1):
             if negative == 1:
@@ -224,8 +224,11 @@ try:
         GPIO.output(out3, GPIO.LOW)
         GPIO.output(out4, GPIO.LOW)
         x = input()
+        dir = 1
+        if(x<0):
+            dir = -1
         for i in range(x):
-            rotate()
+            rotate(dir)
 except KeyboardInterrupt:
 
     GPIO.cleanup()

@@ -1,16 +1,15 @@
-
 import RPi.GPIO as GPIO
 import time
 
-in3 = 31 
+in3 = 31
 in2 = 29
 in1 = 32
 in4 = 33
 
-#in3 = 11 
-#in2 = 13
-#in1 = 15
-#in4 = 12
+# in3 = 11
+# in2 = 13
+# in1 = 15
+# in4 = 12
 
 out1 = in2
 out2 = in3
@@ -23,11 +22,11 @@ negative = 0
 y = 0
 slp = 0.001
 
-#enb= 37
-#ena=35
+# enb= 37
+# ena=35
 
-enb=21
-ena=22
+enb = 21
+ena = 22
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(enb, GPIO.OUT)
@@ -44,13 +43,13 @@ print 'First calibrate by giving some +ve and -ve values.....'
 nsteps = 20
 
 
-def rotate( dir ):
+def rotate(dir):
     i = 0
     positive = 0
     negative = 0
     y = 0
     slp = 0.001
-    x = 400*dir
+    x = 400 * dir
     if x > 0 and x <= 400:
         for y in range(x, 0, -1):
             if negative == 1:
@@ -233,21 +232,42 @@ def rotate( dir ):
             i = i - 1
 
 
+def rotatemotor(x):
+    GPIO.output(out1, GPIO.LOW)
+    GPIO.output(out2, GPIO.LOW)
+    GPIO.output(out3, GPIO.LOW)
+    GPIO.output(out4, GPIO.LOW)
+    dir = 1
+    if x < 0:
+        dir = -1
+        x = x * -1
+    for i in range(x):
+        rotate(dir)
+
+
 try:
     while 1:
-        GPIO.output(out1, GPIO.LOW)
-        GPIO.output(out2, GPIO.LOW)
-        GPIO.output(out3, GPIO.LOW)
-        GPIO.output(out4, GPIO.LOW)
+
+        # GPIO.output(out1, GPIO.LOW)
+        # GPIO.output(out2, GPIO.LOW)
+        # GPIO.output(out3, GPIO.LOW)
+        # GPIO.output(out4, GPIO.LOW)
+
         x = input()
-        dir = 1
-        if(x<0):
-            dir = -1
-            x=x*-1
-        for i in range(x):
-            rotate(dir)
+        rotatemotor(x)
 except KeyboardInterrupt:
 
     GPIO.cleanup()
 
-			
+
+def initializemotor2():
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(enb, GPIO.OUT)
+    GPIO.output(enb, GPIO.HIGH)
+    GPIO.setup(ena, GPIO.OUT)
+    GPIO.output(ena, GPIO.HIGH)
+    GPIO.setup(out1, GPIO.OUT)
+    GPIO.setup(out2, GPIO.OUT)
+    GPIO.setup(out3, GPIO.OUT)
+    GPIO.setup(out4, GPIO.OUT)
+

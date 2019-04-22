@@ -26,17 +26,22 @@ def moveY(y1, y2):
 def moveToOldPos(x1, y1):
     moveX(0,x1)
     moveY(0,y1)
+    print("current position "+str(x1) +" "+str(y1))
+    print("picking the peice up")
     toggleMagnet(True)
 
 def moveToNewPos(x1,y1,x2,y2):
     moveX(x1,x2)
     moveY(y1,y2)
+    print("current position "+str(x2) +" "+str(y2))
+    print("dropping the piece moving towards zero");
     toggleMagnet(False)
     moveMotortozero(x2,y2)
 
 def moveMotortozero(x,y):
     moveX(x,0)
     moveY(y,0)
+    print("finally at zero")
 
 def convertMove(move):
     print("inside the motor")
@@ -44,6 +49,7 @@ def convertMove(move):
     y1 = move.oldPos[1]
     x2 = move.newPos[0]
     y2 = move.newPos[1]
+    print("current position 0,0")
     moveToOldPos(x1,y1)
     moveToNewPos(x1,y1,x2,y2)
 

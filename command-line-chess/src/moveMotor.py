@@ -22,10 +22,20 @@ def moveY(y1, y2):
     rotateY(dy*yscale)
 
 
-def moveTooldPos(x1, y1):
+def moveToOldPos(x1, y1):
     moveX(0,x1)
     moveY(0,y1)
+    toggleMagnet(True)
 
+def moveToNewPos(x1,y1,x2,y2):
+    moveX(x1,x2)
+    moveY(y1,y2)
+    toggleMagnet(False)
+    moveMotortozero(x2,y2)
+
+def moveMotortozero(x,y):
+    moveX(x,0)
+    moveY(y,0)
 
 def convertMove(move):
     print("inside the motor")
@@ -33,11 +43,11 @@ def convertMove(move):
     y1 = move.oldPos[1]
     x2 = move.newPos[0]
     y2 = move.newPos[1]
-    moveX(x1,x2)
-    moveY(y1,y2)
+    moveToOldPos(x1,y1)
+    moveToNewPos(x1,y1,x2,y2)
 
 
-def toggleMotor(state):
+def toggleMagnet(state):
     if(state):
         print("Magnet is turned on")
     else:

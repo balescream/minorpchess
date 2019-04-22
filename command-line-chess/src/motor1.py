@@ -30,11 +30,10 @@ GPIO.setup(out2, GPIO.OUT)
 GPIO.setup(out3, GPIO.OUT)
 GPIO.setup(out4, GPIO.OUT)
 
-print 'First calibrate by giving some +ve and -ve values.....'
-
-nsteps = 20
 
 
+
+nstep=20
 def rotate(dir):
     i = 0
     positive = 0
@@ -237,19 +236,19 @@ def rotatemotor(x):
         rotate(dir)
 
 
-try:
-    while 1:
+# try:
+#     while 1:
 
-        # GPIO.output(out1, GPIO.LOW)
-        # GPIO.output(out2, GPIO.LOW)
-        # GPIO.output(out3, GPIO.LOW)
-        # GPIO.output(out4, GPIO.LOW)
+#         # GPIO.output(out1, GPIO.LOW)
+#         # GPIO.output(out2, GPIO.LOW)
+#         # GPIO.output(out3, GPIO.LOW)
+#         # GPIO.output(out4, GPIO.LOW)
 
-        x = input()
-        rotatemotor(x)
-except KeyboardInterrupt:
+#         x = input()
+#         rotatemotor(x)
+# except KeyboardInterrupt:
 
-    GPIO.cleanup()
+#     GPIO.cleanup()
 
 
 def initializemotor1():

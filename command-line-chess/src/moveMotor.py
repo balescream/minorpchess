@@ -20,7 +20,7 @@ def moveX(x1, x2):
 
 def moveY(y1, y2):
     dy = y2-y1
-    rotateY(dy*yscale)
+    rotateY(-1*dy*yscale)
 
 
 def moveToOldPos(x1, y1):

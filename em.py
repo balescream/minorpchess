@@ -5,12 +5,14 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(19,GPIO.OUT)
 switch=False
 
-for i in range(3):
-    switch=input()
-    if switch==True:
-        print("off")
-        GPIO.output(19,GPIO.HIGH)
-        time.sleep(0.5)
-    else:
-        print("on")
-        GPIO.output(19,GPIO.LOW)
+try:
+    while 1:
+        switch=input()
+        if switch==True:
+            print("off")
+            GPIO.output(19,GPIO.HIGH)
+        else:
+            print("on")
+            GPIO.output(19,GPIO.LOW)
+except KeyboardInterrupt:
+    GPIO.cleanup()

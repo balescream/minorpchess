@@ -8,9 +8,9 @@ switch=False
 for i in range(3):
     switch=input()
     if switch==True:
-        print("switching")
+        print("off")
         GPIO.output(19,GPIO.HIGH)
         time.sleep(0.5)
-        GPIO.output(19,GPIO.LOW)
     else:
-        print("not switching")
+        print("on")
+        GPIO.output(19,GPIO.LOW)

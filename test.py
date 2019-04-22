@@ -182,3 +182,15 @@ try:
               
 except KeyboardInterrupt:
 	GPIO.cleanup()
+
+
+# in4 ->12
+# in3 ->11
+# IN2->13
+# in1->15
+# enB->37
+# enA-> 35
+# lob yg gb rdo
+# 4   3  2   1
+
+

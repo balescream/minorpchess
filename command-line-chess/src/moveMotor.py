@@ -4,15 +4,16 @@ from motor2 import rotatemotor as rotateX
 motorcurentx = 0
 motorcurenty = 0
 
-xscale = 1
-yscale = 1
+xscale = 3
+yscale = 3
 
 def moveMotor(move):
     convertMove(move)
 
-# def trackToInitial():
-#     #TODO  
-    
+def trackInitial(x2,y2):
+	moveX(x2,0)
+	moveY(y2,0)
+
 def moveX(x1, x2):
     dx = x2-x1
     rotateX(dx*xscale)

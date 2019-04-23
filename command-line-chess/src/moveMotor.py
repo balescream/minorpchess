@@ -1,5 +1,6 @@
 from motor1 import rotatemotor as rotateY
 from motor2 import rotatemotor as rotateX
+from em.py import toggleMagnet as toggleMagnet
 
 motorcurentx = 0
 motorcurenty = 0
@@ -52,10 +53,3 @@ def convertMove(move):
     print("current position 0,0")
     moveToOldPos(x1,y1)
     moveToNewPos(x1,y1,x2,y2)
-
-
-def toggleMagnet(state):
-    if(state):
-        print("Magnet is turned on")
-    else:
-        print("Magnet is turned off")

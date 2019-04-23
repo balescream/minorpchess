@@ -1,4 +1,4 @@
-from motor1 import rotatemotor,clean as rotateY,cleanup
+from motor1 import rotatemotor,clean as rotateY
 from motor2 import rotatemotor as rotateX
 from em import toggleMagnet as toggleMagnet
 
@@ -55,4 +55,4 @@ def convertMove(move):
     moveToNewPos(x1,y1,x2,y2)
 
 def clean():
-    cleanup()
+    motor1.clean()

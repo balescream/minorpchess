@@ -3,7 +3,7 @@ from InputParser import InputParser
 from AI import AI
 import sys
 import random
-from moveMotor import moveMotor
+from moveMotor import moveMotor,clean
 
 WHITE = True
 BLACK = False
@@ -189,6 +189,6 @@ try:
         opponentAI = AI(board, not playerSide, aiDepth)
         startGame(board, playerSide, opponentAI)
 except KeyboardInterrupt:
-    GPIO.cleanup()
+    clean()
     sys.exit()
 

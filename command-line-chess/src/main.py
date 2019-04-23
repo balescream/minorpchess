@@ -4,7 +4,7 @@ from AI import AI
 import sys
 import random
 import RPi.GPIO as GPIO
-# from moveMotor import moveMotor
+from moveMotor import moveMotor
 
 WHITE = True
 BLACK = False
@@ -131,7 +131,7 @@ def startGame(board, playerSide, ai):
             move.notation = parser.notationForMove(move)
             print("Ai says", move.notation)
             makeMove(move, board)
-            # moveMotor(move)
+            moveMotor(move)
 
 
 def twoPlayerGame(board):

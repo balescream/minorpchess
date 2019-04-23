@@ -3,7 +3,8 @@ from InputParser import InputParser
 from AI import AI
 import sys
 import random
-from moveMotor import moveMotor
+import RPi.GPIO as GPIO
+# from moveMotor import moveMotor
 
 WHITE = True
 BLACK = False
@@ -130,7 +131,7 @@ def startGame(board, playerSide, ai):
             move.notation = parser.notationForMove(move)
             print("Ai says", move.notation)
             makeMove(move, board)
-            moveMotor(move)
+            # moveMotor(move)
 
 
 def twoPlayerGame(board):
@@ -189,5 +190,6 @@ try:
         opponentAI = AI(board, not playerSide, aiDepth)
         startGame(board, playerSide, opponentAI)
 except KeyboardInterrupt:
+    GPIO.cleanup()
     sys.exit()
 

@@ -262,6 +262,3 @@ def initializemotor1():
     GPIO.setup(out3, GPIO.OUT)
     GPIO.setup(out4, GPIO.OUT)
 
-def clean():
-    GPIO.cleanup()
-

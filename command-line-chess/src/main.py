@@ -188,5 +188,6 @@ try:
         opponentAI = AI(board, not playerSide, aiDepth)
         startGame(board, playerSide, opponentAI)
 except KeyboardInterrupt:
+    GPIO.cleanup()
     sys.exit()
 

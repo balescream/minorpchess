@@ -124,7 +124,7 @@ def startGame(board, playerSide, ai):
             print(move)
             # TODO we have done check cordinate system returns
 
-            printAllLegalMoves(board, InputParser(board, False))
+            # printAllLegalMoves(board, InputParser(board, False))
 
             # TODO we will hack to different notation
             move.notation = parser.notationForMove(move)

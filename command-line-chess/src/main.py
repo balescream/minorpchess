@@ -3,6 +3,7 @@ from InputParser import InputParser
 from AI import AI
 import sys
 import random
+from moveMotor import moveMotor
 
 WHITE = True
 BLACK = False
@@ -119,9 +120,18 @@ def startGame(board, playerSide, ai):
         else:
             print("AI thinking...")
             move = ai.getBestMove()
+
+            print(move)
+            # TODO we have done check cordinate system returns
+
             printAllLegalMoves(board, InputParser(board, False))
+
+            # TODO we will hack to different notation
             move.notation = parser.notationForMove(move)
+            print("Ai says", move.notation)
             makeMove(move, board)
+            moveMotor(move)
+
 
 def twoPlayerGame(board):
     parserWhite = InputParser(board, WHITE)
@@ -144,7 +154,7 @@ def twoPlayerGame(board):
         else:
             parser = parserBlack
         move = None
-        command = input("It's your move, {}.".format(board.currentSideRep()) + \
+        command = input("It's your move, {}.".format(board.currentSideRep()) +
                         " Type '?' for options. ? ")
         if command.lower() == 'u':
             undoLastTwoMoves(board)
@@ -180,3 +190,4 @@ try:
         startGame(board, playerSide, opponentAI)
 except KeyboardInterrupt:
     sys.exit()
+

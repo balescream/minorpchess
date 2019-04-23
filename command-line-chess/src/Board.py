@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8-*-
 from Pawn import Pawn
 from Rook import Rook
 from King import King

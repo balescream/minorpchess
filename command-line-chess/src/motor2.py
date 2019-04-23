@@ -1,5 +1,3 @@
-
-
 import RPi.GPIO as GPIO
 import time
 
@@ -8,6 +6,10 @@ in2 = 33
 in1 = 35
 in4 = 29
 
+# in3 = 11
+# in2 = 13
+# in1 = 15
+# in4 = 12
 
 out1 = in2
 out2 = in3
@@ -20,9 +22,11 @@ negative = 0
 y = 0
 slp = 0.001
 
-ena= 37
-enb=15
+# enb= 37
+# ena=35
 
+enb = 37
+ena = 15
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(enb, GPIO.OUT)
@@ -33,9 +37,6 @@ GPIO.setup(out1, GPIO.OUT)
 GPIO.setup(out2, GPIO.OUT)
 GPIO.setup(out3, GPIO.OUT)
 GPIO.setup(out4, GPIO.OUT)
-
-print 'First calibrate by giving some +ve and -ve values.....'
-
 nsteps = 20
 
 
@@ -241,22 +242,22 @@ def rotatemotor(x):
         rotate(dir)
 
 
-try:
-    while 1:
+# try:
+#     while 1:
 
-        # GPIO.output(out1, GPIO.LOW)
-        # GPIO.output(out2, GPIO.LOW)
-        # GPIO.output(out3, GPIO.LOW)
-        # GPIO.output(out4, GPIO.LOW)
+#         # GPIO.output(out1, GPIO.LOW)
+#         # GPIO.output(out2, GPIO.LOW)
+#         # GPIO.output(out3, GPIO.LOW)
+#         # GPIO.output(out4, GPIO.LOW)
 
-        x = input()
-        rotatemotor(x)
-except KeyboardInterrupt:
+#         x = input()
+#         rotatemotor(x)
+# except KeyboardInterrupt:
 
-    GPIO.cleanup()
+#     GPIO.cleanup()
 
 
-def initializemotor1():
+def initializemotor2():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(enb, GPIO.OUT)
     GPIO.output(enb, GPIO.HIGH)
@@ -266,4 +267,5 @@ def initializemotor1():
     GPIO.setup(out2, GPIO.OUT)
     GPIO.setup(out3, GPIO.OUT)
     GPIO.setup(out4, GPIO.OUT)
+
 

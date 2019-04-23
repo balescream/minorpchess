@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
+
 in3 = 36
 in2 = 32
 in1 = 22
@@ -10,6 +11,7 @@ in4 = 38
 #in2 = 13
 #in1 = 15
 #in4 = 12
+
 
 out1 = in2
 out2 = in3
@@ -25,8 +27,10 @@ slp = 0.001
 # enb= 37
 # ena=35
 
+
 enb = 40
 ena = 18
+
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(enb, GPIO.OUT)
@@ -37,6 +41,7 @@ GPIO.setup(out1, GPIO.OUT)
 GPIO.setup(out2, GPIO.OUT)
 GPIO.setup(out3, GPIO.OUT)
 GPIO.setup(out4, GPIO.OUT)
+
 
 print('First calibrate by giving some +ve and -ve values.....')
 

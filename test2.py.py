@@ -1,4 +1,5 @@
 
+
 import RPi.GPIO as GPIO
 import time
 
@@ -6,6 +7,7 @@ in3 = 31
 in2 = 33
 in1 = 35
 in4 = 29
+
 
 out1 = in2
 out2 = in3
@@ -20,6 +22,7 @@ slp = 0.001
 
 ena= 37
 enb=15
+
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(enb, GPIO.OUT)

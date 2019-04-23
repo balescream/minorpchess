@@ -120,6 +120,7 @@ def startGame(board, playerSide, ai):
         else:
             print("AI thinking...")
             move = ai.getBestMove()
+
             print(move)
             # TODO we have done check cordinate system returns
 

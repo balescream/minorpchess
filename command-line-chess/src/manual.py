@@ -48,13 +48,14 @@ def moveMotortozero(x,y):
     moveY(y,0)
     print("finally at zero")
 
-def convertMove(move):
+def convertMove():
     print("inside the motor")
-    x1 = move.oldPos[0]
-    y1 = move.oldPos[1]
-    x2 = move.newPos[0]
-    y2 = move.newPos[1]
+    x1 = int(input())
+    y1 = int(input())
+    x2 = int(input())
+    y2 = int(input())
     print("current position 0,0")
     moveToOldPos(x1,y1)
     moveToNewPos(x1,y1,x2,y2)
 
+convertMove()

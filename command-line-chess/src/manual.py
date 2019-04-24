@@ -1,12 +1,12 @@
-from motor1 import rotatemotor as rotateY
-from motor2 import rotatemotor as rotateX
+from motor1 import rotatemotor as rotateX
+from motor2 import rotatemotor as rotateY
 from em import toggleMagnet as toggleMagnet
 
 motorcurentx = 0
 motorcurenty = 0
 
-xscale = 3
-yscale = 3
+xscale = 5
+yscale = 4
 
 half_square = 1
 
@@ -14,29 +14,29 @@ def moveMotor(move):
     convertMove(move)
 
 def trackInitial(x2,y2):
-	moveX(x2,0)
-	moveY(y2,0)
+	moveY(x2,0)
+	moveX(y2,0)
 
 def moveX(x1, x2):
     dx = x2-x1
-    rotateX(dx*xscale)
+    rotateX(-dx*xscale)
 
 def moveY(y1, y2):
     dy = y2-y1
-    rotateY(-1*dy*yscale)
+    rotateY(1*dy*yscale)
 
 
 def moveToOldPos(x1, y1):
-    moveX(0,x1)
-    moveY(0,y1)
+    moveY(0,x1)
+    moveX(0,y1)
     print("current position "+str(x1) +" "+str(y1))
     print("picking the peice up")
     toggleMagnet(True)
     #rotateX(half_square)
 
 def moveToNewPos(x1,y1,x2,y2):
-    moveX(x1,x2)
-    moveY(y1,y2)
+    moveY(x1,x2)
+    moveX(y1,y2)
     print("current position "+str(x2) +" "+str(y2))
     print("dropping the piece moving towards zero")
     #rotateX(-1*half_square)
@@ -44,8 +44,8 @@ def moveToNewPos(x1,y1,x2,y2):
     moveMotortozero(x2,y2)
 
 def moveMotortozero(x,y):
-    moveX(x,0)
-    moveY(y,0)
+    moveY(x,0)
+    moveX(y,0)
     print("finally at zero")
 
 def convertMove():

@@ -6,7 +6,7 @@ import time
 motorcurentx = 0
 motorcurenty = 0
 
-xscale = 5
+xscale = 4
 yscale = 4
 
 half_square = 1

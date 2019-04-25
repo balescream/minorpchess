@@ -1,6 +1,7 @@
 from motor1 import rotatemotor as rotateX
 from motor2 import rotatemotor as rotateY
 from em import toggleMagnet as toggleMagnet
+import time
 
 motorcurentx = 0
 motorcurenty = 0
@@ -57,5 +58,6 @@ def convertMove():
     print("current position 0,0")
     moveToOldPos(x1,y1)
     moveToNewPos(x1,y1,x2,y2)
+    ch = input()
 
 convertMove()

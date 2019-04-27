@@ -35,6 +35,7 @@ def moveToOldPos(x1, y1):
     print("picking the peice up")
     toggleMagnet(True)
     rotateX(-1*half_square)
+    rotateY(1*half_square)
 
 def moveToNewPos(x1,y1,x2,y2):
     moveY(y1,y2)
@@ -42,6 +43,7 @@ def moveToNewPos(x1,y1,x2,y2):
     print("current position "+str(x2) +" "+str(y2))
     print("dropping the piece moving towards zero")
     rotateX(1*half_square)
+    rotateY(-1*half_square)
     toggleMagnet(False)
     moveMotortozero(x2,y2)
 
